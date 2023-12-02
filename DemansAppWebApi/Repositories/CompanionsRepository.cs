@@ -24,5 +24,11 @@ namespace DemansAppWebApi.Repositories
             .Where(ss => ss.UserId == userId)
             .ToListAsync();
         }
+
+        public async Task AddOrderAsync(Companions companions)
+        {
+            await _dbContext.Companions.AddAsync(companions);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

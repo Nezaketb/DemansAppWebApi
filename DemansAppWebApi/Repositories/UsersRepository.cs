@@ -17,5 +17,11 @@ namespace DemansAppWebApi.Repositories
         {
             return await _dbContext.Users.ToListAsync();
         }
+
+        public async Task AddOrderAsync(Users users)
+        {
+            await _dbContext.Users.AddAsync(users);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

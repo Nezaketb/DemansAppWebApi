@@ -20,5 +20,9 @@ namespace DemansAppWebApi.Services
         {
             return await _medicinesRepository.GetMedicinesByUserIdAsync(userId);
         }
+        public async Task AddOrderAsync(Medicines medicines)
+        {
+            await _medicinesRepository.AddOrderAsync(medicines);
+        }
     }
 }

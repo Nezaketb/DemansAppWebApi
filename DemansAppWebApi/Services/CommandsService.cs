@@ -19,5 +19,9 @@ namespace DemansAppWebApi.Services
         {
             return await _commandsRepository.GetCommandsByUserIdAsync(userId);
         }
+        public async Task AddOrderAsync(Commands commands)
+        {
+            await _commandsRepository.AddOrderAsync(commands);
+        }
     }
 }

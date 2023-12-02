@@ -17,5 +17,10 @@ namespace DemansAppWebApi.Services
         {
             return await _audioBooksRepository.GetAllAsync();
         }
+
+        public async Task AddOrderAsync(AudioBooks audioBooks)
+        {
+            await _audioBooksRepository.AddOrderAsync(audioBooks);
+        }
     }
 }

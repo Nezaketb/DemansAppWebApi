@@ -16,5 +16,9 @@ namespace DemansAppWebApi.Services
         {
             return await _sentenceRepository.GetAllAsync();
         }
+        public async Task AddOrderAsync(MotivationSentences sentences)
+        {
+            await _sentenceRepository.AddOrderAsync(sentences);
+        }
     }
 }

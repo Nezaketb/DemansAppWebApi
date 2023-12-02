@@ -22,5 +22,9 @@ namespace DemansAppWebApi.Services
         {
             return await _companionsRepository.GetCompanionsByUserIdAsync(userId);
         }
+        public async Task AddOrderAsync(Companions companions)
+        {
+            await _companionsRepository.AddOrderAsync(companions);
+        }
     }
 }

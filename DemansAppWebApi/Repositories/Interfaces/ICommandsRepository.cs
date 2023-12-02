@@ -6,6 +6,7 @@ namespace DemansAppWebApi.Repositories.Interfaces
     {
         Task<IEnumerable<Commands>> GetAllAsync();
         Task<IEnumerable<Commands>> GetCommandsByUserIdAsync(int userId);
+        Task AddOrderAsync(Commands commands);
 
 
     }
