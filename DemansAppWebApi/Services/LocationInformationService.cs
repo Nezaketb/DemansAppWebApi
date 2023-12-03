@@ -22,9 +22,9 @@ namespace DemansAppWebApi.Services
         {
             return await _locationInformationRepository.GetLocationByUserIdAsync(userId);
         }
-        public async Task AddOrderAsync(LocationInformation location)
+        public async Task AddLocationAsync(LocationInformation location)
         {
-            await _locationInformationRepository.AddOrderAsync(location);
+            await _locationInformationRepository.AddLocationAsync(location);
         }
     }
 }

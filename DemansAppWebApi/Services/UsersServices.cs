@@ -17,7 +17,7 @@ namespace DemansAppWebApi.Services
         }
         public async Task AddUserAsync(Users users)
         {
-            await _userRepository.AddOrderAsync(users);
+            await _userRepository.AddUserAsync(users);
         }
     }
 }

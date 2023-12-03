@@ -25,7 +25,7 @@ namespace DemansAppWebApi.Repositories
             .ToListAsync();
         }
 
-        public async Task AddOrderAsync(Medicines medicines)
+        public async Task AddMedicineAsync(Medicines medicines)
         {
             await _dbContext.Medicines.AddAsync(medicines);
             await _dbContext.SaveChangesAsync();

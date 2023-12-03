@@ -41,5 +41,19 @@ namespace DemansAppWebApi.Controllers
                 return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
             }
         }
+
+        [HttpPost("~/api/[controller]")]
+        public async Task<IActionResult> AddUser([FromBody] LocationInformation location)
+        {
+            try
+            {
+                await _locationInformationService.AddLocationAsync(location);
+                return Ok(new ResponseModel { message = "Success", data = location });
+            }
+            catch (Exception ex)
+            {
+                return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
+            }
+        }
     }
 }

@@ -12,13 +12,13 @@ namespace DemansAppWebApi.Services
         {
             _sentenceRepository = sentenceRepository;
         }
-        public async Task<IEnumerable<MotivationSentences>> GetAllStoresAsync()
+        public async Task<IEnumerable<MotivationSentences>> GetAllSentencesAsync()
         {
             return await _sentenceRepository.GetAllAsync();
         }
-        public async Task AddOrderAsync(MotivationSentences sentences)
+        public async Task AddSentenceAsync(MotivationSentences sentences)
         {
-            await _sentenceRepository.AddOrderAsync(sentences);
+            await _sentenceRepository.AddSentenceAsync(sentences);
         }
     }
 }

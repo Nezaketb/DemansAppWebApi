@@ -6,8 +6,7 @@ namespace DemansAppWebApi.Repositories.Interfaces
     {
         Task<IEnumerable<LocationInformation>> GetAllAsync();
         Task<IEnumerable<LocationInformation>> GetLocationByUserIdAsync(int userId);
-        Task AddOrderAsync(LocationInformation location);
-
+        Task AddLocationAsync(LocationInformation location);
 
     }
 }

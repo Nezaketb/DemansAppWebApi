@@ -1,4 +1,5 @@
 ﻿using DemansAppWebApi.Entities;
+using DemansAppWebApi.Services;
 using DemansAppWebApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,8 +20,22 @@ namespace DemansAppWebApi.Controllers
         {
             try
             {
-                var sentences = await _sentenceService.GetAllStoresAsync();
+                var sentences = await _sentenceService.GetAllSentencesAsync();
                 return Ok(new ResponseModel { message = "Success", data = sentences });
+            }
+            catch (Exception ex)
+            {
+                return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
+            }
+        }
+
+        [HttpPost("~/api/[controller]")]
+        public async Task<IActionResult> AddUser([FromBody] MotivationSentences sentence)
+        {
+            try
+            {
+                await _sentenceService.AddSentenceAsync(sentence);
+                return Ok(new ResponseModel { message = "Success", data = sentence });
             }
             catch (Exception ex)
             {

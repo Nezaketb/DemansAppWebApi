@@ -18,7 +18,7 @@ namespace DemansAppWebApi.Repositories
             return await _dbContext.MotivationSentences.ToListAsync();
         }
 
-        public async Task AddOrderAsync(MotivationSentences sentences)
+        public async Task AddSentenceAsync(MotivationSentences sentences)
         {
             await _dbContext.MotivationSentences.AddAsync(sentences);
             await _dbContext.SaveChangesAsync();

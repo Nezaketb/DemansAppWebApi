@@ -40,5 +40,19 @@ namespace DemansAppWebApi.Controllers
                 return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
             }
         }
+
+        [HttpPost("~/api/[controller]")]
+        public async Task<IActionResult> AddCompanion([FromBody] Companions companion)
+        {
+            try
+            {
+                await _companionsService.AddCompanionAsync(companion);
+                return Ok(new ResponseModel { message = "Success", data = companion });
+            }
+            catch (Exception ex)
+            {
+                return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
+            }
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace DemansAppWebApi.Repositories
         {
             return await _dbContext.AudioBooks.ToListAsync();
         }
-        public async Task AddOrderAsync(AudioBooks audioBooks)
+        public async Task AddBookAsync(AudioBooks audioBooks)
         {
             await _dbContext.AudioBooks.AddAsync(audioBooks);
             await _dbContext.SaveChangesAsync();

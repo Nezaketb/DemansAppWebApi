@@ -25,7 +25,7 @@ namespace DemansAppWebApi.Repositories
             .ToListAsync();
         }
 
-        public async Task AddOrderAsync(Companions companions)
+        public async Task AddCompanionAsync(Companions companions)
         {
             await _dbContext.Companions.AddAsync(companions);
             await _dbContext.SaveChangesAsync();

@@ -25,7 +25,7 @@ namespace DemansAppWebApi.Repositories
             .ToListAsync();
         }
 
-        public async Task AddOrderAsync(LocationInformation location)
+        public async Task AddLocationAsync(LocationInformation location)
         {
             await _dbContext.LocationInformation.AddAsync(location);
             await _dbContext.SaveChangesAsync();

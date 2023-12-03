@@ -1,4 +1,5 @@
 ﻿using DemansAppWebApi.Entities;
+using DemansAppWebApi.Services;
 using DemansAppWebApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,5 +27,20 @@ namespace DemansAppWebApi.Controllers
                 return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
             }
         }
+
+        [HttpPost("~/api/[controller]")]
+        public async Task<IActionResult> AddCommand([FromBody] AudioBooks audioBook)
+        {
+            try
+            {
+                await _audioBooksService.AddBookAsync(audioBook);
+                return Ok(new ResponseModel { message = "Success", data = audioBook });
+            }
+            catch (Exception ex)
+            {
+                return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
+            }
+        }
     }
 }
+

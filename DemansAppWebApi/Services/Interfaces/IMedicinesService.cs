@@ -6,6 +6,6 @@ namespace DemansAppWebApi.Services.Interfaces
     {
         Task<IEnumerable<Medicines>> GetAllMedicinesAsync();
         Task<IEnumerable<Medicines>> GetMedicinesByUserIdAsync(int userId);
-        Task AddOrderAsync(Medicines medicines);
+        Task AddMedicineAsync(Medicines medicines);
     }
 }

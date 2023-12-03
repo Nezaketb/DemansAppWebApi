@@ -5,7 +5,7 @@ namespace DemansAppWebApi.Repositories.Interfaces
     public interface IMotivationSentencesRepository
     {
         Task<IEnumerable<MotivationSentences>> GetAllAsync();
-        Task AddOrderAsync(MotivationSentences sentences);
+        Task AddSentenceAsync(MotivationSentences sentences);
 
     }
 }
