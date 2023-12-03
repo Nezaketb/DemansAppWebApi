@@ -25,5 +25,13 @@ namespace DemansAppWebApi.Controllers
                 return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
             }
         }
+
+        [HttpPost("~/api/[controller]")]
+        public async Task<IActionResult> AddUser([FromBody] Users users)
+        {
+            await _usersService.AddUserAsync(users);
+            return Ok(new ResponseModel { message = "Success", data = users });
+        }
+
     }
 }
