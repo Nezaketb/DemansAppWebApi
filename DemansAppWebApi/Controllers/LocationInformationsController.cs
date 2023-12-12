@@ -14,7 +14,7 @@ namespace DemansAppWebApi.Controllers
             _locationInformationService = locationInformationService;
         }
 
-        [HttpGet("~/api/[controller]")]
+        [HttpGet("~/api/[controller]/getLocation")]
         public async Task<ActionResult<IEnumerable<LocationInformation>>> GetAllLocationAsync()
         {
             try
@@ -28,7 +28,7 @@ namespace DemansAppWebApi.Controllers
             }
         }
 
-        [HttpGet("~/api/[controller]/{userId}")]
+        [HttpGet("~/api/[controller]/getLocation/{userId}")]
         public async Task<ActionResult<LocationInformation>> GetLocationsByUserId(int userId)
         {
             try
@@ -42,8 +42,8 @@ namespace DemansAppWebApi.Controllers
             }
         }
 
-        [HttpPost("~/api/[controller]")]
-        public async Task<IActionResult> AddUser([FromBody] LocationInformation location)
+        [HttpPost("~/api/[controller]/addLocation")]
+        public async Task<IActionResult> AddLocation([FromBody] LocationInformation location)
         {
             try
             {

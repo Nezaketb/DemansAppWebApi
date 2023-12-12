@@ -7,6 +7,8 @@ namespace DemansAppWebApi.Services.Interfaces
         Task<IEnumerable<Commands>> GetAllCommandsAsync();
         Task<IEnumerable<Commands>> GetCommandsByUserIdAsync(int userId);
         Task AddCommandAsync(Commands commands);
+        Task UpdateCommandAsync(Commands commands);
+
 
     }
 }

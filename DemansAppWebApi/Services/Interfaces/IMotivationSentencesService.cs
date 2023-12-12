@@ -6,6 +6,7 @@ namespace DemansAppWebApi.Services.Interfaces
     {
         Task<IEnumerable<MotivationSentences>> GetAllSentencesAsync();
         Task AddSentenceAsync(MotivationSentences sentences);
+        Task UpdateSentenceAsync(MotivationSentences sentence);
 
     }
 }

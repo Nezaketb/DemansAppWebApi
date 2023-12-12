@@ -13,7 +13,7 @@ namespace DemansAppWebApi.Controllers
             _companionsService = companionsService;
         }
 
-        [HttpGet("~/api/[controller]")]
+        [HttpGet("~/api/[controller]/getAllCompanion")]
         public async Task<ActionResult<IEnumerable<Companions>>> GetAllCompanionsAsync()
         {
             try
@@ -27,7 +27,7 @@ namespace DemansAppWebApi.Controllers
             }
         }
 
-        [HttpGet("~/api/[controller]/{userId}")]
+        [HttpGet("~/api/[controller]/getCompanion/{userId}")]
         public async Task<ActionResult<Companions>> GetCompanionsByUserId(int userId)
         {
             try
@@ -41,7 +41,7 @@ namespace DemansAppWebApi.Controllers
             }
         }
 
-        [HttpPost("~/api/[controller]")]
+        [HttpPost("~/api/[controller]/addCompanion")]
         public async Task<IActionResult> AddCompanion([FromBody] Companions companion)
         {
             try

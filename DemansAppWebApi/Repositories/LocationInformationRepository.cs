@@ -30,5 +30,11 @@ namespace DemansAppWebApi.Repositories
             await _dbContext.LocationInformation.AddAsync(location);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task UpdateLocationAsync(LocationInformation location)
+        {
+            _dbContext.LocationInformation.Update(location);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

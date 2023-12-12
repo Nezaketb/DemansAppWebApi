@@ -7,7 +7,6 @@ namespace DemansAppWebApi.Repositories.Interfaces
         Task<IEnumerable<Companions>> GetAllAsync();
         Task<IEnumerable<Companions>> GetCompanionsByUserIdAsync(int userId);
         Task AddCompanionAsync(Companions companions);
-
-
+        Task UpdateCompanionAsync(Companions companion);
     }
 }

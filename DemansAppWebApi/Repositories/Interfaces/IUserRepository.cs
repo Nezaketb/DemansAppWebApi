@@ -6,6 +6,8 @@ namespace DemansAppWebApi.Repositories.Interfaces
     {
         Task<IEnumerable<Users>> GetAllAsync();
         Task AddUserAsync(Users users);
+        Task UpdateUserAsync(Users user);
+
 
     }
 }

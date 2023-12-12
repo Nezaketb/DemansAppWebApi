@@ -1,5 +1,6 @@
 ﻿using DemansAppWebApi.Entities;
 using DemansAppWebApi.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DemansAppWebApi.Controllers
@@ -12,7 +13,7 @@ namespace DemansAppWebApi.Controllers
             _usersService = usersService;
         }
 
-        [HttpGet("~/api/[controller]")]
+        [HttpGet("~/api/[controller]/getAllUsers")]
         public async Task<ActionResult<IEnumerable<Users>>> GetAllUsersAsync()
         {
             try
@@ -26,7 +27,7 @@ namespace DemansAppWebApi.Controllers
             }
         }
 
-        [HttpPost("~/api/[controller]")]
+        [HttpPost("~/api/[controller]/addUser")]
         public async Task<IActionResult> AddUser([FromBody] Users users)
         {
             try
@@ -37,6 +38,29 @@ namespace DemansAppWebApi.Controllers
             catch (Exception ex)
             {
                 return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
+            }
+        }
+
+
+        [HttpPost("~/api/[controller]/UpdateUser")]
+        public async Task<IActionResult> UpdateUserAsync([FromBody] Users model)
+        {
+            try
+            {
+                var isUpdated = await _usersService.UpdateUserAsync(model);
+
+                if (isUpdated)
+                {
+                    return Ok(new ResponseModel { message = "User updated successfully." });
+                }
+                else
+                {
+                    return NotFound(new ResponseModel { message = "User not found or update failed." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ResponseModel { message = "Error", data = ex.ToString() });
             }
         }
 

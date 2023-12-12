@@ -26,5 +26,10 @@ namespace DemansAppWebApi.Services
         {
             await _companionsRepository.AddCompanionAsync(companions);
         }
+
+        public async Task UpdateCompanionAsync(Companions companion)
+        {
+            await _companionsRepository.UpdateCompanionAsync(companion);
+        }
     }
 }

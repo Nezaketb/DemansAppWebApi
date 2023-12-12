@@ -26,5 +26,10 @@ namespace DemansAppWebApi.Services
         {
             await _locationInformationRepository.AddLocationAsync(location);
         }
+
+        public async Task UpdateLocationAsync(LocationInformation location)
+        {
+            await _locationInformationRepository.UpdateLocationAsync(location);
+        }
     }
 }

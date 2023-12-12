@@ -14,7 +14,7 @@ namespace DemansAppWebApi.Controllers
             _audioBooksService = audioBooksService;
         }
 
-        [HttpGet("~/api/[controller]")]
+        [HttpGet("~/api/[controller]/getAllBooks")]
         public async Task<ActionResult<IEnumerable<AudioBooks>>> GetAllBooksAsync()
         {
             try
@@ -28,7 +28,7 @@ namespace DemansAppWebApi.Controllers
             }
         }
 
-        [HttpPost("~/api/[controller]")]
+        [HttpPost("~/api/[controller]/addBooks")]
         public async Task<IActionResult> AddCommand([FromBody] AudioBooks audioBook)
         {
             try

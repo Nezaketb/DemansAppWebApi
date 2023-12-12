@@ -6,6 +6,7 @@ namespace DemansAppWebApi.Services.Interfaces
     {
         Task<IEnumerable<Users>> GetAllUsersAsync();
         Task AddUserAsync(Users users);
+        Task<bool> UpdateUserAsync(Users user);
 
     }
 }

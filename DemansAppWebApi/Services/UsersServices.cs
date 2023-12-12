@@ -19,5 +19,11 @@ namespace DemansAppWebApi.Services
         {
             await _userRepository.AddUserAsync(users);
         }
+
+        public async Task<bool> UpdateUserAsync(Users user)
+        {
+            await _userRepository.UpdateUserAsync(user);
+            return true;
+        }
     }
 }

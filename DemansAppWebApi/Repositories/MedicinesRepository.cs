@@ -30,5 +30,11 @@ namespace DemansAppWebApi.Repositories
             await _dbContext.Medicines.AddAsync(medicines);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task UpdateMedicineAsync(Medicines medicine)
+        {
+            _dbContext.Medicines.Update(medicine);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

@@ -23,5 +23,10 @@ namespace DemansAppWebApi.Services
         {
             await _commandsRepository.AddCommandAsync(commands);
         }
+
+        public async Task UpdateCommandAsync(Commands commands)
+        {
+            await _commandsRepository.UpdateCommandAsync(commands);
+        }
     }
 }

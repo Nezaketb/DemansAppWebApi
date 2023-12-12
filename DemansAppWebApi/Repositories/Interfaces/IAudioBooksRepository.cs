@@ -6,7 +6,7 @@ namespace DemansAppWebApi.Repositories.Interfaces
     {
         Task<IEnumerable<AudioBooks>> GetAllAsync();
         Task AddBookAsync(AudioBooks audioBooks);
-
+        Task UpdateBookAsync(AudioBooks book);
 
     }
 }

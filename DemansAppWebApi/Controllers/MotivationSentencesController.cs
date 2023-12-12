@@ -15,7 +15,7 @@ namespace DemansAppWebApi.Controllers
         }
 
 
-        [HttpGet("~/api/[controller]")]
+        [HttpGet("~/api/[controller]/getAllSentences")]
         public async Task<ActionResult<IEnumerable<MotivationSentences>>> GetAllSentencesAsync()
         {
             try
@@ -29,7 +29,7 @@ namespace DemansAppWebApi.Controllers
             }
         }
 
-        [HttpPost("~/api/[controller]")]
+        [HttpPost("~/api/[controller]/addSentence")]
         public async Task<IActionResult> AddUser([FromBody] MotivationSentences sentence)
         {
             try

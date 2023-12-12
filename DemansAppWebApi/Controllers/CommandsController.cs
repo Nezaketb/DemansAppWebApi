@@ -15,7 +15,7 @@ namespace DemansAppWebApi.Controllers
             _commandsService = commandsService;
         }
 
-        [HttpGet("~/api/[controller]")]
+        [HttpGet("~/api/[controller]/getAllCommand")]
         public async Task<ActionResult<IEnumerable<Commands>>> GetAllCommandsAsync()
         {
             try
@@ -29,7 +29,7 @@ namespace DemansAppWebApi.Controllers
             }
         }
 
-        [HttpGet("{userId}")]
+        [HttpGet("~/api/[controller]/getCommand/{userId}")]
         public async Task<ActionResult<Commands>> GetCommandsByUserId(int userId)
         {
             try
@@ -43,7 +43,7 @@ namespace DemansAppWebApi.Controllers
             }
         }
 
-        [HttpPost("~/api/[controller]")]
+        [HttpPost("~/api/[controller]/addCommand")]
         public async Task<IActionResult> AddCommand([FromBody] Commands command)
         {
             try

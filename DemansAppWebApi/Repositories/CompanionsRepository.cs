@@ -30,5 +30,11 @@ namespace DemansAppWebApi.Repositories
             await _dbContext.Companions.AddAsync(companions);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task UpdateCompanionAsync(Companions companion)
+        {
+            _dbContext.Companions.Update(companion);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

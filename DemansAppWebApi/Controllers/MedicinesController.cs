@@ -14,7 +14,7 @@ namespace DemansAppWebApi.Controllers
             _medicinesService = medicinesService;
         }
 
-        [HttpGet("~/api/[controller]")]
+        [HttpGet("~/api/[controller]/getAllMedicines")]
         public async Task<ActionResult<IEnumerable<Medicines>>> GetAllMedicinesAsync()
         {
             try
@@ -28,8 +28,8 @@ namespace DemansAppWebApi.Controllers
             }
         }
 
-        [HttpGet("~/api/[controller]/medicines/{userId}")]
-        public async Task<ActionResult<Companions>> GetCompanionsByUserId(int userId)
+        [HttpGet("~/api/[controller]/getMedicines/{userId}")]
+        public async Task<ActionResult<Companions>> GetMedicinesByUserId(int userId)
         {
             try
             {
@@ -41,8 +41,8 @@ namespace DemansAppWebApi.Controllers
                 return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
             }
         }
-        [HttpPost("~/api/[controller]")]
-        public async Task<IActionResult> AddUser([FromBody] Medicines medicine)
+        [HttpPost("~/api/[controller]/addMedicine")]
+        public async Task<IActionResult> AddMedcine([FromBody] Medicines medicine)
         {
             try
             {
