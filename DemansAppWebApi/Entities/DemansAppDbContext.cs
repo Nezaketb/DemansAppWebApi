@@ -47,6 +47,7 @@ namespace DemansAppWebApi.Entities
                 entity.Property(e => e.Name).HasMaxLength(255);
                 entity.Property(e => e.Subject).HasMaxLength(255);
                 entity.Property(e => e.Text).HasMaxLength(255);
+                entity.Property(e => e.Url).HasMaxLength(255);
                 entity.Property(e => e.Status).HasMaxLength(255);
             });
             modelBuilder.Entity<Commands>(entity =>
