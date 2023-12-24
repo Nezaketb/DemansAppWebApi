@@ -29,12 +29,12 @@ namespace DemansAppWebApi.Controllers
         }
 
         [HttpGet("~/api/[controller]/getMedicines/{userId}")]
-        public async Task<ActionResult<Companions>> GetMedicinesByUserId(int userId)
+        public async Task<ActionResult<Medicines>> GetMedicinesByUserId(int userId)
         {
             try
             {
-                var companion = await _medicinesService.GetMedicinesByUserIdAsync(userId);
-                return Ok(new ResponseModel { message = "Success", data = companion });
+                var medicine = await _medicinesService.GetMedicinesByUserIdAsync(userId);
+                return Ok(new ResponseModel { message = "Success", data = medicine });
             }
             catch (Exception ex)
             {
