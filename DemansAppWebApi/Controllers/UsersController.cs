@@ -75,7 +75,7 @@ namespace DemansAppWebApi.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { Message = ex.Message });
+                return StatusCode(500, new ResponseModel { message = "Error", data = ex.ToString() });
             }
         }
 
@@ -97,7 +97,7 @@ namespace DemansAppWebApi.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { Message = ex.Message });
+                return StatusCode(500, new ResponseModel { message = "Error", data = ex.ToString() });
             }
         }
     }
