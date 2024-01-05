@@ -71,7 +71,7 @@ namespace DemansAppWebApi.Controllers
             try
             {
                 await _usersService.RegisterAsync(request.UserName, request.Email, request.Password);
-                return Ok(new { Message = "Kayıt başarılı." });
+                return Ok(new { Message = "Kayıt başarılı" });
             }
             catch (Exception ex)
             {
