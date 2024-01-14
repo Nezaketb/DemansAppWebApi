@@ -29,5 +29,20 @@ namespace DemansAppWebApi.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task<Users> GetUserByIdAsync(int userId)
+        {
+            return await _dbContext.Users.FindAsync(userId);
+        }
+
+        public async Task<Users> GetUserByEmailAsync(string email)
+        {
+            return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+        public async Task CreateUserAsync(Users user)
+        {
+            _dbContext.Users.Add(user);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

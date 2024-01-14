@@ -1,4 +1,5 @@
 ﻿using DemansAppWebApi.Entities;
+using DemansAppWebApi.Entities.Request;
 using DemansAppWebApi.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -64,5 +65,41 @@ namespace DemansAppWebApi.Controllers
             }
         }
 
+        [HttpPost("~/api/[controller]/Register")]
+        public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+        {
+            try
+            {
+                await _usersService.RegisterAsync(request.UserName, request.Email, request.Password);
+                return Ok(new { Message = "Kayıt başarılı" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ResponseModel { message = "Error", data = ex.ToString() });
+            }
+        }
+
+        [HttpPost("~/api/[controller]/Login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            try
+            {
+                var isAuthenticated = await _usersService.AuthenticateAsync(request.Email, request.Password);
+
+                if (isAuthenticated)
+                {
+                    return Ok(new { Message = "Giriş başarılı." });
+                }
+                else
+                {
+                    return Unauthorized(new { Message = "Geçersiz kullanıcı adı veya şifre." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ResponseModel { message = "Error", data = ex.ToString() });
+            }
+        }
     }
 }
+

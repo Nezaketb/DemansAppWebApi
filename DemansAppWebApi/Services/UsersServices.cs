@@ -25,5 +25,36 @@ namespace DemansAppWebApi.Services
             await _userRepository.UpdateUserAsync(user);
             return true;
         }
+        public async Task RegisterAsync(string username, string email, string password)
+        {
+            var existingUser = await _userRepository.GetUserByEmailAsync(email);
+            if (existingUser != null)
+            {
+                throw new Exception("Bu e-posta adresi ile bir kullanıcı zaten var.");
+            }
+
+
+            var newUser = new Users
+            {
+                UserName = username,
+                Email = email,
+                Password = password
+            };
+
+            await _userRepository.CreateUserAsync(newUser);
+        }
+
+        public async Task<bool> AuthenticateAsync(string email, string password)
+        {
+            var user = await _userRepository.GetUserByEmailAsync(email);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            return user.Password == password;
+        }
+
     }
 }

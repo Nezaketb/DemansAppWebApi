@@ -7,6 +7,7 @@ namespace DemansAppWebApi.Services.Interfaces
         Task<IEnumerable<Users>> GetAllUsersAsync();
         Task AddUserAsync(Users users);
         Task<bool> UpdateUserAsync(Users user);
-
+        Task RegisterAsync(string username, string email, string password);
+        Task<bool> AuthenticateAsync(string email, string password);
     }
 }
