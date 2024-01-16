@@ -8,6 +8,6 @@ namespace DemansAppWebApi.Services.Interfaces
         Task AddUserAsync(Users users);
         Task<bool> UpdateUserAsync(Users user);
         Task RegisterAsync(string username, string email, string password);
-        Task<bool> AuthenticateAsync(string email, string password);
+        Task<Users> AuthenticateAsync(string email, string password);
     }
 }

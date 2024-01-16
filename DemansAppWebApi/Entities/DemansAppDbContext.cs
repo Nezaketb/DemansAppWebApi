@@ -26,12 +26,15 @@ namespace DemansAppWebApi.Entities
             {
                 entity.ToTable("Users");
 
-                entity.Property(e => e.Email).HasMaxLength(255);
-                entity.Property(e => e.Password).HasMaxLength(255);
-                entity.Property(e => e.EmergencyPhone).HasMaxLength(255);
-                entity.Property(e => e.UserName).HasMaxLength(255);
-                entity.Property(e => e.Surname).HasMaxLength(255);
-                entity.Property(e => e.Phone).HasMaxLength(255);
+                entity.Property(e => e.Email).HasColumnType("string").IsRequired(false);
+                entity.Property(e => e.Password).HasColumnType("string").IsRequired(false);
+                entity.Property(e => e.EmergencyPhone).HasColumnType("string").IsRequired(false);
+                entity.Property(e => e.UserName).HasColumnType("string").IsRequired(false);
+                entity.Property(e => e.Surname).HasColumnType("string").IsRequired(false);
+                entity.Property(e => e.Phone).HasColumnType("string").IsRequired(false);
+                entity.Property(e => e.Status).HasColumnType("int").IsRequired(false);
+                entity.Property(e => e.Sex).HasColumnType("boolean");
+
             });
             modelBuilder.Entity<Admins>(entity =>
             {

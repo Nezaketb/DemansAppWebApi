@@ -84,11 +84,13 @@ namespace DemansAppWebApi.Controllers
         {
             try
             {
-                var isAuthenticated = await _usersService.AuthenticateAsync(request.Email, request.Password);
+                var user = await _usersService.AuthenticateAsync(request.Email, request.Password);
 
-                if (isAuthenticated)
+                if (user != null)
                 {
-                    return Ok(new { Message = "Giriş başarılı." });
+                    int userId= user.Id;
+                    return Ok(new { userId });
+
                 }
                 else
                 {
@@ -100,6 +102,7 @@ namespace DemansAppWebApi.Controllers
                 return StatusCode(500, new ResponseModel { message = "Error", data = ex.ToString() });
             }
         }
+
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using DemansAppWebApi.Entities;
+using DemansAppWebApi.Repositories;
 using DemansAppWebApi.Repositories.Interfaces;
 using DemansAppWebApi.Services.Interfaces;
 
@@ -44,16 +45,13 @@ namespace DemansAppWebApi.Services
             await _userRepository.CreateUserAsync(newUser);
         }
 
-        public async Task<bool> AuthenticateAsync(string email, string password)
+        public async Task<Users> AuthenticateAsync(string email, string password)
         {
-            var user = await _userRepository.GetUserByEmailAsync(email);
+            // Kullanıcı doğrulama işlemleri, örneğin, veritabanından kullanıcıyı bulma
+            var user = await _userRepository.GetByEmailAndPasswordAsync(email, password);
 
-            if (user == null)
-            {
-                return false;
-            }
-
-            return user.Password == password;
+            // Doğrulama başarılıysa kullanıcıyı döndür, aksi halde null döndür
+            return user;
         }
 
     }

@@ -9,6 +9,8 @@ namespace DemansAppWebApi.Repositories.Interfaces
         Task UpdateUserAsync(Users user);
         Task<Users> GetUserByIdAsync(int userId);
         Task<Users> GetUserByEmailAsync(string email);
+        Task<Users> GetByEmailAndPasswordAsync(string email,string password);
+
         Task CreateUserAsync(Users user);
     }
 }
