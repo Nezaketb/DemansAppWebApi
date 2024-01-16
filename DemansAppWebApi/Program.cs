@@ -35,6 +35,9 @@ builder.Services.AddScoped<ILocationInformationRepository, LocationInformationRe
 builder.Services.AddScoped<IMedicinesService, MedicinesService>();
 builder.Services.AddScoped<IMedicinesRepository, MedicinesRepository>();
 
+builder.Services.AddScoped<IPictureService, PictureService>();
+builder.Services.AddScoped<IPictureRepository, PicturesRepository>();
+
 builder.Services.AddScoped<IMotivationSentencesService, MotivationSentencesService>();
 builder.Services.AddScoped<IMotivationSentencesRepository, MotivationSentencesRepository>();
 

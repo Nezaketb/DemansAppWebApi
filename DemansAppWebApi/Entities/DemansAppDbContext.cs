@@ -16,6 +16,8 @@ namespace DemansAppWebApi.Entities
         public virtual DbSet<Companions> Companions { get; set; } = null!;
         public virtual DbSet<LocationInformation> LocationInformation { get; set; } = null!;
         public virtual DbSet<Medicines> Medicines { get; set; } = null!;
+        public virtual DbSet<Pictures> Pictures { get; set; } = null!;
+
         public virtual DbSet<MotivationSentences> MotivationSentences { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -53,6 +55,16 @@ namespace DemansAppWebApi.Entities
                 entity.Property(e => e.Url).HasMaxLength(255);
                 entity.Property(e => e.Status).HasMaxLength(255);
             });
+            modelBuilder.Entity<Pictures>(entity =>
+            {
+                entity.ToTable("Pictures");
+
+
+                entity.Property(p => p.Url).HasColumnType("string").IsRequired(false);
+                entity.Property(p => p.Text).HasColumnType("string").IsRequired(false);
+                entity.Property(p => p.UserId).HasColumnType("int").IsRequired(false);
+                entity.Property(p => p.Status).HasColumnType("bit").IsRequired(true);
+            });
             modelBuilder.Entity<Commands>(entity =>
             {
                 entity.ToTable("Commands");
@@ -71,7 +83,7 @@ namespace DemansAppWebApi.Entities
                 entity.Property(e => e.Name).HasColumnType("string").IsRequired(true);
                 entity.Property(e => e.Surname).HasColumnType("string").IsRequired(true);
                 entity.Property(e => e.Phone).HasColumnType("string").IsRequired(true);
-                entity.Property(e => e.Sex).HasColumnType("boolean").IsRequired(false);
+                entity.Property(e => e.Sex).HasColumnType("boolean");
                 entity.Property(e => e.UserId).HasColumnType("int").IsRequired(false);
                 entity.Property(e => e.Status).HasColumnType("int").IsRequired(false);
             });

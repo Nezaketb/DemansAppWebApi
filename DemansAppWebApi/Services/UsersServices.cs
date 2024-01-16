@@ -47,10 +47,8 @@ namespace DemansAppWebApi.Services
 
         public async Task<Users> AuthenticateAsync(string email, string password)
         {
-            // Kullanıcı doğrulama işlemleri, örneğin, veritabanından kullanıcıyı bulma
             var user = await _userRepository.GetByEmailAndPasswordAsync(email, password);
 
-            // Doğrulama başarılıysa kullanıcıyı döndür, aksi halde null döndür
             return user;
         }
 
