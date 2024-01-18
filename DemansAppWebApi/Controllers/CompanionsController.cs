@@ -1,4 +1,5 @@
 ﻿using DemansAppWebApi.Entities;
+using DemansAppWebApi.Entities.Request;
 using DemansAppWebApi.Services;
 using DemansAppWebApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -52,6 +53,30 @@ namespace DemansAppWebApi.Controllers
             catch (Exception ex)
             {
                 return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
+            }
+        }
+
+        [HttpPost("~/api/[controller]/Login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            try
+            {
+                var user = await _companionsService.AuthenticateAsync(request.Email, request.Password);
+
+                if (user != null)
+                {
+                    int userId = user.Id;
+                    return Ok(new { userId });
+
+                }
+                else
+                {
+                    return Unauthorized(new { Message = "Geçersiz kullanıcı adı veya şifre." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ResponseModel { message = "Error", data = ex.ToString() });
             }
         }
     }

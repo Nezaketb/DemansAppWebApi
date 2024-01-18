@@ -31,6 +31,13 @@ namespace DemansAppWebApi.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task<Companions> GetByEmailAndPasswordAsync(string email, string password)
+        {
+            var user = await _dbContext.Companions
+                .FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
+
+            return user;
+        }
         public async Task UpdateCompanionAsync(Companions companion)
         {
             _dbContext.Companions.Update(companion);

@@ -31,5 +31,13 @@ namespace DemansAppWebApi.Services
         {
             await _companionsRepository.UpdateCompanionAsync(companion);
         }
+
+        public async Task<Companions> AuthenticateAsync(string email, string password)
+        {
+            var user = await _companionsRepository.GetByEmailAndPasswordAsync(email, password);
+
+            return user;
+        }
+
     }
 }

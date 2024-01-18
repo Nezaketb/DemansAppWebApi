@@ -84,6 +84,7 @@ namespace DemansAppWebApi.Entities
                 entity.Property(e => e.Surname).HasColumnType("string").IsRequired(true);
                 entity.Property(e => e.Phone).HasColumnType("string").IsRequired(true);
                 entity.Property(e => e.Sex).HasColumnType("boolean");
+                entity.Property(e => e.Password).HasColumnType("string").IsRequired(false);
                 entity.Property(e => e.UserId).HasColumnType("int").IsRequired(false);
                 entity.Property(e => e.Status).HasColumnType("int").IsRequired(false);
             });

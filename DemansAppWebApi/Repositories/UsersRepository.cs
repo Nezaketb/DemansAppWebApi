@@ -17,19 +17,15 @@ namespace DemansAppWebApi.Repositories
         {
             try
             {
-                // ... Diğer kodlar
 
                 var users = await _dbContext.Users.ToListAsync();
 
-                // ... Diğer kodlar
 
                 return users;
             }
             catch (Exception ex)
             {
-                // Hata mesajını loglama
                 Console.WriteLine($"Exception: {ex.Message}");
-                // Hata mesajını döndürme
                 throw new Exception("An error occurred while fetching users.", ex);
             }
 
@@ -59,7 +55,6 @@ namespace DemansAppWebApi.Repositories
 
         public async Task<Users> GetByEmailAndPasswordAsync(string email, string password)
         {
-            // Kullanıcıyı e-posta ve şifre ile ara
             var user = await _dbContext.Users
                 .FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
 
