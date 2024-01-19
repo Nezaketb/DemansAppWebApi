@@ -41,6 +41,24 @@ namespace DemansAppWebApi.Controllers
                 return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
             }
         }
+
+        [HttpGet("~/api/[controller]/getMedicinesNear")]
+
+        public async Task<IActionResult> GetMedicinesNearExpiration()
+        {
+            try
+            {
+                DateTime currentDate = DateTime.Now;
+
+                var medicines = await _medicinesService.GetMedicinesNearExpiration(currentDate);
+
+                return Ok(medicines);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error: {ex.Message}");
+            }
+        }
         [HttpPost("~/api/[controller]/addMedicine")]
         public async Task<IActionResult> AddMedcine([FromBody] Medicines medicine)
         {

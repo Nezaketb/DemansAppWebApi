@@ -25,6 +25,14 @@ namespace DemansAppWebApi.Repositories
             .ToListAsync();
         }
 
+        public async Task<IEnumerable<Medicines>> GetMedicinesNearExpiration(DateTime currentDate)
+        {
+            return await _dbContext.Medicines
+                .Where(m => m.EndDate >= currentDate && m.EndDate <= currentDate.AddDays(7)) 
+            .OrderBy(m => m.EndDate)  
+            .Take(3) 
+            .ToListAsync();
+        }
         public async Task AddMedicineAsync(Medicines medicines)
         {
             await _dbContext.Medicines.AddAsync(medicines);

@@ -20,6 +20,11 @@ namespace DemansAppWebApi.Services
         {
             return await _medicinesRepository.GetMedicinesByUserIdAsync(userId);
         }
+
+        public async Task<IEnumerable<Medicines>> GetMedicinesNearExpiration(DateTime currentDate)
+        {
+            return await _medicinesRepository.GetMedicinesNearExpiration(currentDate);
+        }
         public async Task AddMedicineAsync(Medicines medicines)
         {
             await _medicinesRepository.AddMedicineAsync(medicines);
