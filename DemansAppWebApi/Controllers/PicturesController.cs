@@ -33,11 +33,12 @@ namespace DemansAppWebApi.Controllers
             try
             {
                 await _picturesService.AddPictureAsync(picture);
+               
                 return Ok(new ResponseModel { message = "Success", data = picture });
             }
             catch (Exception ex)
             {
-                return Ok(new ResponseModel { message = "Error", data = ex.ToString() });
+                return Ok(new ResponseModel { message = "Error", data = ex.StackTrace });
             }
         }
     }

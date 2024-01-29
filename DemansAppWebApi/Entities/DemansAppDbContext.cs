@@ -59,11 +59,9 @@ namespace DemansAppWebApi.Entities
             {
                 entity.ToTable("Pictures");
 
-
-                entity.Property(p => p.Url).HasColumnType("string").IsRequired(false);
-                entity.Property(p => p.Text).HasColumnType("string").IsRequired(false);
-                entity.Property(p => p.UserId).HasColumnType("int").IsRequired(false);
-                entity.Property(p => p.Status).HasColumnType("bit").IsRequired(true);
+                entity.Property(p => p.Url).HasColumnType("string").IsRequired(true);
+                entity.Property(p => p.Text).HasColumnType("string").IsRequired(true);
+                entity.Property(p => p.UserId).HasColumnType("int").IsRequired(true);
             });
             modelBuilder.Entity<Commands>(entity =>
             {
@@ -92,31 +90,32 @@ namespace DemansAppWebApi.Entities
             {
                 entity.ToTable("LocationInformation");
 
-                entity.Property(p => p.Lat).HasColumnType("string").IsRequired();
-                entity.Property(p => p.Lng).HasColumnType("string").IsRequired();
-                entity.Property(p => p.UserId).HasColumnType("int").IsRequired();
-                entity.Property(p => p.Status).HasColumnType("bit").IsRequired();
+                entity.Property(p => p.Lat).HasColumnType("decimal(18, 2)").IsRequired(false);
+                entity.Property(p => p.Lng).HasColumnType("decimal(18, 2)").IsRequired(false);
+                entity.Property(p => p.UserId).HasColumnType("int").IsRequired(false);
+                entity.Property(p => p.Status).HasColumnType("bit").IsRequired(false);
             });
             modelBuilder.Entity<Medicines>(entity =>
             {
                 entity.ToTable("Medicines");
 
-                entity.Property(e => e.Name).HasColumnType("string").IsRequired();
-                entity.Property(e => e.UsageDuration).HasColumnType("string").IsRequired();
-                entity.Property(e => e.UsagePurpose).HasColumnType("string").IsRequired(false);
-                entity.Property(e => e.StartDate).HasColumnType("datetime").IsRequired();
-                entity.Property(e => e.EndDate).HasColumnType("datetime").IsRequired();
-                entity.Property(e => e.Moon).HasColumnType("bit").IsRequired();
-                entity.Property(e => e.Afternoon).HasColumnType("bit").IsRequired();
-                entity.Property(e => e.Evening).HasColumnType("bit").IsRequired();
-                entity.Property(e => e.Night).HasColumnType("bit").IsRequired();
-                entity.Property(e => e.MoonTime).HasColumnType("string").IsRequired(false);
-                entity.Property(e => e.AfternoonTime).HasColumnType("string").IsRequired(false);
-                entity.Property(e => e.EveningTime).HasColumnType("string").IsRequired(false);
-                entity.Property(e => e.NightTime).HasColumnType("string").IsRequired(false);
-                entity.Property(e => e.UserId).HasColumnType("int").IsRequired(false);
-                entity.Property(e => e.Status).HasColumnType("bit").IsRequired(true);
+                entity.Property(e => e.Name).IsRequired();
+                entity.Property(e => e.UsageDuration).IsRequired();
+                entity.Property(e => e.UsagePurpose);
+                entity.Property(e => e.StartDate).IsRequired();
+                entity.Property(e => e.EndDate).IsRequired();
+                entity.Property(e => e.Moon).HasColumnType("bit");
+                entity.Property(e => e.Afternoon).HasColumnType("bit");
+                entity.Property(e => e.Evening).HasColumnType("bit");
+                entity.Property(e => e.Night).HasColumnType("bit");
+                entity.Property(e => e.MoonTime).IsRequired();
+                entity.Property(e => e.AfternoonTime).IsRequired();
+                entity.Property(e => e.EveningTime).IsRequired();
+                entity.Property(e => e.NightTime).IsRequired();
+                entity.Property(e => e.UserId).IsRequired();
+                entity.Property(e => e.Status).HasColumnType("bit").IsRequired();
             });
+
             modelBuilder.Entity<MotivationSentences>(entity =>
             {
                 entity.ToTable("MotivationSentences");

@@ -18,7 +18,7 @@ namespace DemansAppWebApi.Services
             return await _locationInformationRepository.GetAllAsync();
         }
 
-        public async Task<IEnumerable<LocationInformation>> GetLocationsByUserIdAsync(int userId)
+        public async Task<LocationInformation> GetLocationsByUserIdAsync(int userId)
         {
             return await _locationInformationRepository.GetLocationByUserIdAsync(userId);
         }

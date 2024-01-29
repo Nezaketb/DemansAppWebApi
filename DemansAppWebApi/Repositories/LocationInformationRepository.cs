@@ -18,12 +18,14 @@ namespace DemansAppWebApi.Repositories
             return await _dbContext.LocationInformation.ToListAsync();
         }
 
-        public async Task<IEnumerable<LocationInformation>> GetLocationByUserIdAsync(int userId)
+        public async Task<LocationInformation> GetLocationByUserIdAsync(int userId)
         {
             return await _dbContext.LocationInformation
-            .Where(ss => ss.UserId == userId)
-            .ToListAsync();
+                .Where(ss => ss.UserId == userId)
+                .OrderByDescending(ss => ss.Id)
+                .FirstOrDefaultAsync();
         }
+
 
         public async Task AddLocationAsync(LocationInformation location)
         {
