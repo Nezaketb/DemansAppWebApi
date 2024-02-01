@@ -1,6 +1,8 @@
 ﻿using DemansAppWebApi.Entities;
+using DemansAppWebApi.Repositories;
 using DemansAppWebApi.Repositories.Interfaces;
 using DemansAppWebApi.Services.Interfaces;
+using System;
 
 namespace DemansAppWebApi.Services
 {
@@ -19,9 +21,23 @@ namespace DemansAppWebApi.Services
         {
             return await _commandsRepository.GetCommandsByUserIdAsync(userId);
         }
-        public async Task AddCommandAsync(Commands commands)
+        public async Task AddCommandAsync(int userId)
         {
-            await _commandsRepository.AddCommandAsync(commands);
+            Commands companion1 = new()
+            {
+                ProcessName = "Elektrik",
+                Status = 0,
+                UserId = userId,
+            };
+            await _commandsRepository.AddCommandAsync(companion1);
+
+            Commands companion2 = new()
+            {
+                ProcessName = "Doğalgaz",
+                Status = 0, 
+                UserId = userId,
+            };
+            await _commandsRepository.AddCommandAsync(companion2);
         }
 
         public async Task UpdateCommandAsync(Commands commands)

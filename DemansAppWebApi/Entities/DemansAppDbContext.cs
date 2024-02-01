@@ -69,8 +69,7 @@ namespace DemansAppWebApi.Entities
 
                 entity.Property(e => e.ProcessName).HasColumnType("string").IsRequired();
                 entity.Property(e => e.Status).HasColumnType("boolean").IsRequired();
-                entity.Property(e => e.UserId).HasColumnType("int").IsRequired(false);
-                entity.Property(e => e.CompanionId).HasColumnType("int").IsRequired(false);
+                entity.Property(e => e.UserId).HasColumnType("int").IsRequired();
             });
             modelBuilder.Entity<Companions>(entity =>
             {

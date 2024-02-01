@@ -48,7 +48,7 @@ namespace DemansAppWebApi.Controllers
         {
             try
             {
-                await _commandsService.AddCommandAsync(command);
+                await _commandsService.AddCommandAsync(command.UserId);
                 return Ok(new ResponseModel { message = "Success", data = command });
             }
             catch (Exception ex)

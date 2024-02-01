@@ -8,10 +8,9 @@ namespace DemansAppWebApi.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string ProcessName { get; set; }
+        public string? ProcessName { get; set; }
         public byte Status { get; set; }
-        public int? UserId { get; set; }
-        public int? CompanionId { get; set; }
+        public int UserId { get; set; }
 
     }
 }
