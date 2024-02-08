@@ -11,5 +11,7 @@ namespace DemansAppWebApi.Services.Interfaces
         Task AddMedicineAsync(Medicines medicines);
         Task UpdateMedicineAsync(Medicines medicine);
 
+        Task<IEnumerable<Medicines>> MedicineControl(int userId);
+
     }
 }

@@ -9,6 +9,7 @@ namespace DemansAppWebApi.Repositories.Interfaces
         Task AddMedicineAsync(Medicines medicines);
         Task UpdateMedicineAsync(Medicines medicine);
         Task<IEnumerable<Medicines>> GetMedicinesNearExpiration(DateTime currentDate);
+        Task <IEnumerable<Medicines>> MedicineControl(int userId);
 
     }
 }

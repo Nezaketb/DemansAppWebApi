@@ -34,5 +34,11 @@ namespace DemansAppWebApi.Services
         {
             await _medicinesRepository.UpdateMedicineAsync(medicine);
         }
+
+        public async Task<IEnumerable<Medicines>> MedicineControl(int userId)
+        {
+
+            return await _medicinesRepository.MedicineControl(userId);
+        }
     }
 }

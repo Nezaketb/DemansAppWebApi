@@ -44,5 +44,13 @@ namespace DemansAppWebApi.Repositories
             _dbContext.Medicines.Update(medicine);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<Medicines>> MedicineControl(int userId)
+        {
+
+            return await _dbContext.Medicines
+               .Where(m => m.UserId == userId && m.EndDate >= DateTime.Now && m.StartDate <= DateTime.Now).ToListAsync();
+            
+        }
     }
 }

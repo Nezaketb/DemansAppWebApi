@@ -18,7 +18,4 @@
   <ItemGroup>
     <None Remove="Entities\Request\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\Request\" />
-  </ItemGroup>
 </Project>
